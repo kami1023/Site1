@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #020408;
+  background-size: cover;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-grow: 1;
+}
+
+.container .card {
+  position: relative;
+  width: 650px;
+  height: 345px;
+  background: rgba(255, 255, 255, 0.25);
+  background-image: url(imageBefore.png);
+  background-repeat: no-repeat;
+  border-radius: 18px;
+  overflow: hidden;
+  margin-top: 350px;
+  /* Move the card down by adjusting this value */
+}
+
+.container .card::before {
+  content: '';
+  position: absolute;
+  top: var(--y);
+  left: var(--x);
+  transform: translate(-50%, -50%);
+  background: radial-gradient(var(--clr), transparent, transparent);
+  width: 300px;
+  height: 300px;
+  opacity: 0;
+  transition: 0.5s, top 0s, left 0s;
+}
+
+.container .card:hover::before {
+  opacity: 1;
+}
+
+.container .card::after {
+  content: '';
+  position: absolute;
+  border-radius: 18px;
+  inset: 1px;
+  background-image: url(imageAfter.png)
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  padding-bottom: 70px;
+}
+
+.btn {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  background: #1c2a44;
+  width: 160px;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition-duration: 0.3s;
+  transition-property: box-shadow, transform;
+  margin-bottom: 50px;
+}
+
+.btn:first-of-type {
+  background-color: #0A0A0A;
+}
+
+.btn:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  transform: scale(1.1);
+}
+
+.labels {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  /* Adjust the gap between labels */
+  position: absolute;
+  /* Use absolute positioning */
+  top: 200px;
+  /* Adjust this value to move labels down */
+  width: 100%;
+  /* Ensure labels are centered */
+  text-align: center;
+}
+
+.label {
+  font-family: 'Franklin Gothic gras', 'Arial Narrow', Arial, sans-serif;
+  font-size: 75px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+}
